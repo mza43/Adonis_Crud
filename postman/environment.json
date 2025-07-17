@@ -1,0 +1,15 @@
+{
+	"id": "732db97e-8f0b-4be2-88c2-81344dc81ab6",
+	"name": "adonis_user",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3333",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-07-17T09:52:26.294Z",
+	"_postman_exported_using": "Postman/11.54.2"
+}
