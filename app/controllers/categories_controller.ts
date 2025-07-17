@@ -56,7 +56,7 @@ export default class CategoriesController {
   }
 
   // PUT
-  
+
   async update({ params, request, response }: HttpContext) {
     try {
       const category = await Category.findOrFail(params.id)

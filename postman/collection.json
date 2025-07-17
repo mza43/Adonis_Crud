@@ -1,1576 +1,1410 @@
 {
-	"info": {
-		"_postman_id": "3703dc51-9d28-4306-aa7c-ce781fa3f450",
-		"name": "Adonis",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26193776"
-	},
-	"item": [
-		{
-			"name": "users",
-			"item": [
-				{
-					"name": "Allusers",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3333/api/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Allusers",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/api/users",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"users"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "u4btaz2v1ocjy06ra4etv3at"
-								},
-								{
-									"key": "content-length",
-									"value": "364"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:55:09 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Users fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"abc\",\n            \"email\": \"abc2@gmail.com\",\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"posts\": [],\n            \"setting\": {\n                \"id\": 4,\n                \"city\": \"Lahore\",\n                \"phone\": \"0123456789\",\n                \"userId\": 4,\n                \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n                \"updatedAt\": \"2025-07-16T11:21:31.000+00:00\"\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "CreateUsers",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "X-CSRF-Token",
-								"value": "{{csrf_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"zubair\",\r\n    \"email\":\"zubair@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"0123456789\",\r\n        \"city\":\"Lahore\"\r\n\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-CSRF-Token",
-										"value": "{{csrf_token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"abc22\",\r\n    \"email\":\"abc22@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"0123456789\",\r\n        \"city\":\"Lahore\"\r\n\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/users",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"users"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "rxvhurofn4vpwwq1tbj5jhvt"
-								},
-								{
-									"key": "content-length",
-									"value": "353"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:55:49 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"name\": \"abc22\",\n        \"email\": \"abc22@gmail.com\",\n        \"createdAt\": \"2025-07-17T09:55:49.765+00:00\",\n        \"updatedAt\": \"2025-07-17T09:55:49.765+00:00\",\n        \"id\": 5,\n        \"setting\": {\n            \"id\": 8,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 5,\n            \"createdAt\": \"2025-07-17T09:55:49.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:55:49.000+00:00\"\n        }\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "UpdateUser",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "X-CSRF-Token",
-								"value": "{{csrf_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"zubair aslam\",\r\n    \"email\":\"zubair@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"012345678\",\r\n        \"city\":\"Lahore Pakistan\"\r\n\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/users/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"users",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-CSRF-Token",
-										"value": "{{csrf_token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"zubair aslam\",\r\n  \"email\": \"zubair1@gmail.com\",\r\n  \"settings\": {\r\n    \"phone\": \"012345678\",\r\n    \"city\": \"Lahore Pakistan\"\r\n  }\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/users/4",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"users",
-										"4"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "e8tug73jxy973wzdbab22xxx"
-								},
-								{
-									"key": "content-length",
-									"value": "370"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:56:50 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"zubair aslam\",\n        \"email\": \"zubair1@gmail.com\",\n        \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n        \"updatedAt\": \"2025-07-17T09:56:50.708+00:00\",\n        \"setting\": {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        }\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DeleteUser",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/users/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"users",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "DeleteUser",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/users/5",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"users",
-										"5"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "iammjxad92ul5uzw2ohh69no"
-								},
-								{
-									"key": "content-length",
-									"value": "53"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:57:51 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"User deleted successfully\"\n}"
-						}
-					]
-				},
-				{
-					"name": "GetOneUser",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3333/api/users/4",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3333",
-									"path": [
-										"api",
-										"users",
-										"4"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "l71ulue67li3rruopi22tkfx"
-								},
-								{
-									"key": "content-length",
-									"value": "381"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:58:05 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"User fetched successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"zubair aslam\",\n        \"email\": \"zubair1@gmail.com\",\n        \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n        \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\",\n        \"posts\": [],\n        \"setting\": {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        }\n    }\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Post",
-			"item": [
-				{
-					"name": "GettAllPosts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3333/api/posts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"posts"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "GettAllPosts",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/api/posts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"posts"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "x354fmkil72ba4lc3lza2hjq"
-								},
-								{
-									"key": "content-length",
-									"value": "602"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 09:59:11 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Posts fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"title\": \"fisrt post\",\n            \"description\": \"This post for social media\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T11:10:12.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:10:12.000+00:00\",\n            \"user\": null,\n            \"categories\": []\n        },\n        {\n            \"id\": 4,\n            \"title\": \"fisrt post\",\n            \"description\": \"This post for social media\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T11:13:13.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:13:13.000+00:00\",\n            \"user\": null,\n            \"categories\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Tile\",\n                    \"description\": \"discription\",\n                    \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                    \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n                }\n            ]\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "CreatePost",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/posts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"posts"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"userId\":1,\r\n  \"categoryIds\": [1]\r\n\r\n\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/posts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"posts"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "newgmhch0fx7b66nvcn4sdqy"
-								},
-								{
-									"key": "content-length",
-									"value": "399"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:01:03 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Post created successfully\",\n    \"data\": {\n        \"title\": \"fisrt post\",\n        \"description\": \"This post for social media\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-17T10:01:03.059+00:00\",\n        \"updatedAt\": \"2025-07-17T10:01:03.059+00:00\",\n        \"id\": 5,\n        \"user\": null,\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"title\": \"Tile\",\n                \"description\": \"discription\",\n                \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n            }\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "GetOnePost",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/posts/4",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"posts",
-										"4"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "ohxhacdm51pxmhmk41zcgo78"
-								},
-								{
-									"key": "content-length",
-									"value": "384"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:01:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Post found\",\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"fisrt post\",\n        \"description\": \"This post for social media\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-16T11:13:13.000+00:00\",\n        \"updatedAt\": \"2025-07-16T11:13:13.000+00:00\",\n        \"user\": null,\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"title\": \"Tile\",\n                \"description\": \"discription\",\n                \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n            }\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DeletePost",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/users/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"users",
-								"2"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "DeletePost",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/posts/3",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"posts",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "lf02sngeuqd7wlhpuyf8jw7y"
-								},
-								{
-									"key": "content-length",
-									"value": "53"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:02:19 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Post deleted successfully\"\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Category",
-			"item": [
-				{
-					"name": "AllCategory",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3333/api/categories",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3333",
-									"path": [
-										"api",
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidGEwcG81bXAxZm92MjRyYXFwa3R6NHdvIiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.JfwUocKSPLUdHjALZiAEIfdjj2RO5KQRV-wL8bD2oAk; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "w4ejv2w2c6elb3z8f5n4bu8h"
-								},
-								{
-									"key": "content-length",
-									"value": "349"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 16 Jul 2025 11:29:52 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Categories fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"title\": \"Tile2\",\n            \"description\": \"discription\",\n            \"createdAt\": \"2025-07-16T11:24:38.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:24:38.000+00:00\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"Tile\",\n            \"description\": \"discription\",\n            \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n            \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "CreateCategory",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile3\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/categories",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"categories"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "vkn108da495s1ted3rttie94"
-								},
-								{
-									"key": "content-length",
-									"value": "205"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:02:48 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Category created successfully\",\n    \"data\": {\n        \"title\": \"Tile3\",\n        \"description\": \"discription\",\n        \"createdAt\": \"2025-07-17T10:02:48.567+00:00\",\n        \"updatedAt\": \"2025-07-17T10:02:48.567+00:00\",\n        \"id\": 4\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "GetOneCategory",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/categories/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"categories",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "GetOneCategory",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/categories/2",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"categories",
-										"2"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "dt321bjxjvztsbs0ynr4e43w"
-								},
-								{
-									"key": "content-length",
-									"value": "201"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:03:25 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Category found\",\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Tile2\",\n        \"description\": \"discription\",\n        \"createdAt\": \"2025-07-16T11:24:38.000+00:00\",\n        \"updatedAt\": \"2025-07-16T11:24:38.000+00:00\",\n        \"posts\": []\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DeleteCategory",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/api/categories/3",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"categories",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3333/api/categories/3",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3333",
-									"path": [
-										"api",
-										"categories",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidGEwcG81bXAxZm92MjRyYXFwa3R6NHdvIiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.JfwUocKSPLUdHjALZiAEIfdjj2RO5KQRV-wL8bD2oAk; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "q3xjrml18oj6m1sm56lk2ta6"
-								},
-								{
-									"key": "content-length",
-									"value": "57"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 16 Jul 2025 11:29:17 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Category deleted successfully\"\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "setting",
-			"item": [
-				{
-					"name": "GetAllSettings",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/settings",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"settings"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "GetAllSettings",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/settings",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"settings"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "pjm0td177rkn36lhvn5gq5v5"
-								},
-								{
-									"key": "content-length",
-									"value": "797"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:04:09 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"All settings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 8,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 5,\n            \"createdAt\": \"2025-07-17T09:55:49.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:55:49.000+00:00\"\n        },\n        {\n            \"id\": 7,\n            \"city\": \"lahore\",\n            \"phone\": \"000000\",\n            \"userId\": 3,\n            \"createdAt\": \"2025-07-16T15:30:40.000+00:00\",\n            \"updatedAt\": \"2025-07-16T15:30:40.000+00:00\"\n        },\n        {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        },\n        {\n            \"id\": 2,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 2,\n            \"createdAt\": \"2025-07-16T11:02:19.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:02:19.000+00:00\"\n        },\n        {\n            \"id\": 1,\n            \"city\": \"Isb\",\n            \"phone\": \"012345678\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T10:22:23.000+00:00\",\n            \"updatedAt\": \"2025-07-16T14:31:24.000+00:00\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "UpdateSetting",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\r\n\r\n    \"city\":\"Isb\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3333/api/settings/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"api",
-								"settings",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "UpdateSetting",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\r\n\r\n    \"city\":\"Isb\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/settings/1",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"settings",
-										"1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "prp25hfkoiukbnyhq11ik0xm"
-								},
-								{
-									"key": "content-length",
-									"value": "204"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Jul 2025 10:04:31 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Setting updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"city\": \"Isb\",\n        \"phone\": \"012345678\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-16T10:22:23.000+00:00\",\n        \"updatedAt\": \"2025-07-16T14:31:24.000+00:00\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DeleteSetting",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/api/settings/3",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"settings",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "New Request",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3333/api/settings/3",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3333",
-									"path": [
-										"api",
-										"settings",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "x-frame-options",
-									"value": "DENY"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "set-cookie",
-									"value": "adonis-session=s%3AeyJtZXNzYWdlIjoidHV0NjBnNWVmdzZyZ3FobzRubmZoZ245IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.9DvdskjQS7PS3QYzeycyl3tkQxdXMK1UngEtmXus6Yw; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
-								},
-								{
-									"key": "x-request-id",
-									"value": "crtgp892garejrovviovdo1p"
-								},
-								{
-									"key": "content-length",
-									"value": "56"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 16 Jul 2025 15:26:08 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": true,\n    \"message\": \"Setting deleted successfully\"\n}"
-						}
-					]
-				},
-				{
-					"name": "CreateSetting",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"city\":\"lahore\",\r\n\"phone\":\"000000\",\r\n\"userId\":3\r\n\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/settings",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"settings"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "3703dc51-9d28-4306-aa7c-ce781fa3f450",
+    "name": "Adonis",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26193776"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "Allusers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "users"]
+            }
+          },
+          "response": [
+            {
+              "name": "Allusers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/users",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "users"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "u4btaz2v1ocjy06ra4etv3at"
+                },
+                {
+                  "key": "content-length",
+                  "value": "364"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:55:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Users fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"abc\",\n            \"email\": \"abc2@gmail.com\",\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"posts\": [],\n            \"setting\": {\n                \"id\": 4,\n                \"city\": \"Lahore\",\n                \"phone\": \"0123456789\",\n                \"userId\": 4,\n                \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n                \"updatedAt\": \"2025-07-16T11:21:31.000+00:00\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "CreateUsers",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"zubair\",\r\n    \"email\":\"zubair@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"0123456789\",\r\n        \"city\":\"Lahore\"\r\n\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "users"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-CSRF-Token",
+                    "value": "{{csrf_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"abc22\",\r\n    \"email\":\"abc22@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"0123456789\",\r\n        \"city\":\"Lahore\"\r\n\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/users",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "users"]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "rxvhurofn4vpwwq1tbj5jhvt"
+                },
+                {
+                  "key": "content-length",
+                  "value": "353"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:55:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"name\": \"abc22\",\n        \"email\": \"abc22@gmail.com\",\n        \"createdAt\": \"2025-07-17T09:55:49.765+00:00\",\n        \"updatedAt\": \"2025-07-17T09:55:49.765+00:00\",\n        \"id\": 5,\n        \"setting\": {\n            \"id\": 8,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 5,\n            \"createdAt\": \"2025-07-17T09:55:49.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:55:49.000+00:00\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "UpdateUser",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-CSRF-Token",
+                "value": "{{csrf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"_csrf\": \"{{csrf_token}}\" ,\r\n\r\n    \"name\": \"zubair aslam\",\r\n    \"email\":\"zubair@gmail.com\",\r\n    \"settings\":{\r\n        \"phone\":\"012345678\",\r\n        \"city\":\"Lahore Pakistan\"\r\n\r\n    }\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "users", "1"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-CSRF-Token",
+                    "value": "{{csrf_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"zubair aslam\",\r\n  \"email\": \"zubair1@gmail.com\",\r\n  \"settings\": {\r\n    \"phone\": \"012345678\",\r\n    \"city\": \"Lahore Pakistan\"\r\n  }\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/users/4",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "users", "4"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "e8tug73jxy973wzdbab22xxx"
+                },
+                {
+                  "key": "content-length",
+                  "value": "370"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:56:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"zubair aslam\",\n        \"email\": \"zubair1@gmail.com\",\n        \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n        \"updatedAt\": \"2025-07-17T09:56:50.708+00:00\",\n        \"setting\": {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeleteUser",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/users/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "users", "3"]
+            }
+          },
+          "response": [
+            {
+              "name": "DeleteUser",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/users/5",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "users", "5"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "iammjxad92ul5uzw2ohh69no"
+                },
+                {
+                  "key": "content-length",
+                  "value": "53"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:57:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"User deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "GetOneUser",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/api/users/4",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "3333",
+                  "path": ["api", "users", "4"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "l71ulue67li3rruopi22tkfx"
+                },
+                {
+                  "key": "content-length",
+                  "value": "381"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:58:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"User fetched successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"zubair aslam\",\n        \"email\": \"zubair1@gmail.com\",\n        \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n        \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\",\n        \"posts\": [],\n        \"setting\": {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Post",
+      "item": [
+        {
+          "name": "GettAllPosts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/api/posts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "posts"]
+            }
+          },
+          "response": [
+            {
+              "name": "GettAllPosts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/posts",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "posts"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "x354fmkil72ba4lc3lza2hjq"
+                },
+                {
+                  "key": "content-length",
+                  "value": "602"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 09:59:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Posts fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"title\": \"fisrt post\",\n            \"description\": \"This post for social media\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T11:10:12.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:10:12.000+00:00\",\n            \"user\": null,\n            \"categories\": []\n        },\n        {\n            \"id\": 4,\n            \"title\": \"fisrt post\",\n            \"description\": \"This post for social media\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T11:13:13.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:13:13.000+00:00\",\n            \"user\": null,\n            \"categories\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Tile\",\n                    \"description\": \"discription\",\n                    \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                    \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n                }\n            ]\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "CreatePost",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/posts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "posts"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"userId\":1,\r\n  \"categoryIds\": [1]\r\n\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/posts",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "posts"]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "newgmhch0fx7b66nvcn4sdqy"
+                },
+                {
+                  "key": "content-length",
+                  "value": "399"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:01:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Post created successfully\",\n    \"data\": {\n        \"title\": \"fisrt post\",\n        \"description\": \"This post for social media\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-17T10:01:03.059+00:00\",\n        \"updatedAt\": \"2025-07-17T10:01:03.059+00:00\",\n        \"id\": 5,\n        \"user\": null,\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"title\": \"Tile\",\n                \"description\": \"discription\",\n                \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "GetOnePost",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/posts/4",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "posts", "4"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "ohxhacdm51pxmhmk41zcgo78"
+                },
+                {
+                  "key": "content-length",
+                  "value": "384"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:01:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Post found\",\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"fisrt post\",\n        \"description\": \"This post for social media\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-16T11:13:13.000+00:00\",\n        \"updatedAt\": \"2025-07-16T11:13:13.000+00:00\",\n        \"user\": null,\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"title\": \"Tile\",\n                \"description\": \"discription\",\n                \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n                \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeletePost",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/users/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "users", "2"]
+            }
+          },
+          "response": [
+            {
+              "name": "DeletePost",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/posts/3",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "posts", "3"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "lf02sngeuqd7wlhpuyf8jw7y"
+                },
+                {
+                  "key": "content-length",
+                  "value": "53"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:02:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Post deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "AllCategory",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n\"title\":\"fisrt post\",\r\n\"description\":\"This post for social media\",\r\n\"user_id\":\"2\"\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/api/categories",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "3333",
+                  "path": ["api", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidGEwcG81bXAxZm92MjRyYXFwa3R6NHdvIiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.JfwUocKSPLUdHjALZiAEIfdjj2RO5KQRV-wL8bD2oAk; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "w4ejv2w2c6elb3z8f5n4bu8h"
+                },
+                {
+                  "key": "content-length",
+                  "value": "349"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jul 2025 11:29:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Categories fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"title\": \"Tile2\",\n            \"description\": \"discription\",\n            \"createdAt\": \"2025-07-16T11:24:38.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:24:38.000+00:00\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"Tile\",\n            \"description\": \"discription\",\n            \"createdAt\": \"2025-07-16T10:48:39.000+00:00\",\n            \"updatedAt\": \"2025-07-16T10:48:39.000+00:00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "CreateCategory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/categories",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile3\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/categories",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "categories"]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "vkn108da495s1ted3rttie94"
+                },
+                {
+                  "key": "content-length",
+                  "value": "205"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:02:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Category created successfully\",\n    \"data\": {\n        \"title\": \"Tile3\",\n        \"description\": \"discription\",\n        \"createdAt\": \"2025-07-17T10:02:48.567+00:00\",\n        \"updatedAt\": \"2025-07-17T10:02:48.567+00:00\",\n        \"id\": 4\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "GetOneCategory",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/categories/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "categories", "3"]
+            }
+          },
+          "response": [
+            {
+              "name": "GetOneCategory",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/categories/2",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "categories", "2"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "dt321bjxjvztsbs0ynr4e43w"
+                },
+                {
+                  "key": "content-length",
+                  "value": "201"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:03:25 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Category found\",\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Tile2\",\n        \"description\": \"discription\",\n        \"createdAt\": \"2025-07-16T11:24:38.000+00:00\",\n        \"updatedAt\": \"2025-07-16T11:24:38.000+00:00\",\n        \"posts\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeleteCategory",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/categories/3",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories", "3"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/api/categories/3",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "3333",
+                  "path": ["api", "categories", "3"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidGEwcG81bXAxZm92MjRyYXFwa3R6NHdvIiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.JfwUocKSPLUdHjALZiAEIfdjj2RO5KQRV-wL8bD2oAk; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "q3xjrml18oj6m1sm56lk2ta6"
+                },
+                {
+                  "key": "content-length",
+                  "value": "57"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jul 2025 11:29:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Category deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setting",
+      "item": [
+        {
+          "name": "GetAllSettings",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/settings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "settings"]
+            }
+          },
+          "response": [
+            {
+              "name": "GetAllSettings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/settings",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "settings"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "pjm0td177rkn36lhvn5gq5v5"
+                },
+                {
+                  "key": "content-length",
+                  "value": "797"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:04:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"All settings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 8,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 5,\n            \"createdAt\": \"2025-07-17T09:55:49.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:55:49.000+00:00\"\n        },\n        {\n            \"id\": 7,\n            \"city\": \"lahore\",\n            \"phone\": \"000000\",\n            \"userId\": 3,\n            \"createdAt\": \"2025-07-16T15:30:40.000+00:00\",\n            \"updatedAt\": \"2025-07-16T15:30:40.000+00:00\"\n        },\n        {\n            \"id\": 4,\n            \"city\": \"Lahore Pakistan\",\n            \"phone\": \"012345678\",\n            \"userId\": 4,\n            \"createdAt\": \"2025-07-16T11:21:31.000+00:00\",\n            \"updatedAt\": \"2025-07-17T09:56:50.000+00:00\"\n        },\n        {\n            \"id\": 2,\n            \"city\": \"Lahore\",\n            \"phone\": \"0123456789\",\n            \"userId\": 2,\n            \"createdAt\": \"2025-07-16T11:02:19.000+00:00\",\n            \"updatedAt\": \"2025-07-16T11:02:19.000+00:00\"\n        },\n        {\n            \"id\": 1,\n            \"city\": \"Isb\",\n            \"phone\": \"012345678\",\n            \"userId\": 1,\n            \"createdAt\": \"2025-07-16T10:22:23.000+00:00\",\n            \"updatedAt\": \"2025-07-16T14:31:24.000+00:00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "UpdateSetting",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n\r\n    \"city\":\"Isb\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/api/settings/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3333",
+              "path": ["api", "settings", "1"]
+            }
+          },
+          "response": [
+            {
+              "name": "UpdateSetting",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n\r\n    \"city\":\"Isb\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/settings/1",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "settings", "1"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidTJseWh3eTFjZXJ0ZDJ0N2w2bDFhN254IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.7yDlhgOA01b_Km3vMYP-MEVBmgXS5yRoQt-n8s8BORg; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "prp25hfkoiukbnyhq11ik0xm"
+                },
+                {
+                  "key": "content-length",
+                  "value": "204"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jul 2025 10:04:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Setting updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"city\": \"Isb\",\n        \"phone\": \"012345678\",\n        \"userId\": 1,\n        \"createdAt\": \"2025-07-16T10:22:23.000+00:00\",\n        \"updatedAt\": \"2025-07-16T14:31:24.000+00:00\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeleteSetting",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/settings/3",
+              "host": ["{{base_url}}"],
+              "path": ["api", "settings", "3"]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"title\":\"Tile\",\r\n\"description\":\"discription\"\r\n\r\n\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/api/settings/3",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "3333",
+                  "path": ["api", "settings", "3"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "adonis-session=s%3AeyJtZXNzYWdlIjoidHV0NjBnNWVmdzZyZ3FobzRubmZoZ245IiwicHVycG9zZSI6ImFkb25pcy1zZXNzaW9uIn0.9DvdskjQS7PS3QYzeycyl3tkQxdXMK1UngEtmXus6Yw; Max-Age=7200; Path=/; HttpOnly; SameSite=Lax"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "crtgp892garejrovviovdo1p"
+                },
+                {
+                  "key": "content-length",
+                  "value": "56"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jul 2025 15:26:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Setting deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "CreateSetting",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"city\":\"lahore\",\r\n\"phone\":\"000000\",\r\n\"userId\":3\r\n\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/settings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "settings"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }
