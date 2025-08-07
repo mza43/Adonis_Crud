@@ -63,4 +63,6 @@ router
 
 // Home page route
 
-router.on('/').render('pages/home')
+router.get('/', async () => {
+  return 'server is runging'
+})
