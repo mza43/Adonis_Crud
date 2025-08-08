@@ -17,11 +17,13 @@ import UsersController from '../app/controllers/users_controller.js'
 
 router
   .group(() => {
-    router.get('/', [UsersController, 'index'])
+    router.post('/', [UsersController, 'index']) 
+
     router.get('/:id', [UsersController, 'show'])
-    router.post('/', [UsersController, 'store'])
+    router.post('/create', [UsersController, 'store'])
     router.put('/:id', [UsersController, 'update'])
     router.delete('/:id', [UsersController, 'destroy'])
+    
   })
   .prefix('/api/users')
 
@@ -63,6 +65,6 @@ router
 
 // Home page route
 
-router.get('/', async () => {
-  return 'server is runging'
+router.get('/',async()=>{
+  return "server is runging"
 })

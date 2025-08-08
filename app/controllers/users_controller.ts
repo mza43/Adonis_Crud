@@ -1,30 +1,44 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import User from '../models/user.js'
+import UserService from '../services/user_service.js'
 
 export default class UsersController {
-  async index({ response }: HttpContext) {
-    try {
-      const users = await User.query().preload('posts').preload('setting')
-      return response.ok({
-        status: true,
-        message: 'Users fetched successfully',
-        data: users,
-      })
-    } catch (error) {
-      return response.internalServerError({
-        status: false,
-        message: 'Failed to fetch users',
-        error: error.message,
-      })
-    }
+ 
+  async index({ request, response }: HttpContext) {
+  try {
+    const { page = 1, limit = 20, search = '', sortField = 'id', sortOrder = 'asc' } = request.body()
+
+    const users = await UserService.getPaginatedUsers({
+      page: Number(page),
+      limit: Number(limit),
+      search,
+      sortField,
+      sortOrder,
+    })
+
+    return response.ok({
+      status: true,
+      message: 'Users fetched successfully',
+      meta: {
+        total: users.total,
+        perPage: users.perPage,
+        currentPage: users.currentPage,
+        lastPage: users.lastPage,
+      },
+      data: users.all(),
+    })
+  } catch (error) {
+    return response.internalServerError({
+      status: false,
+      message: 'Failed to fetch users',
+      error: error.message,
+    })
   }
+}
+
 
   async show({ params, response }: HttpContext) {
     try {
-      const user = await User.findOrFail(params.id)
-      await user.load('posts')
-      await user.load('setting')
-
+      const user = await UserService.getUserById(params.id)
       return response.ok({
         status: true,
         message: 'User fetched successfully',
@@ -39,19 +53,12 @@ export default class UsersController {
     }
   }
 
-  // POST
   async store({ request, response }: HttpContext) {
     try {
       const data = request.only(['name', 'email'])
       const settings = request.input('settings')
 
-      const user = await User.create(data)
-
-      if (settings) {
-        await user.related('setting').create(settings)
-      }
-
-      await user.load('setting')
+      const user = await UserService.createUser(data, settings)
 
       return response.created({
         status: true,
@@ -67,38 +74,11 @@ export default class UsersController {
     }
   }
 
-  // PUT
-
   async update({ params, request, response }: HttpContext) {
     try {
-      const user = await User.findOrFail(params.id)
+      const { name, email, settings } = request.only(['name', 'email', 'settings'])
 
-      const data = request.body()
-      const { name, email, settings } = data
-
-      console.log({ name, email, settings })
-
-      user.merge({ name, email })
-      await user.save()
-
-      if (settings) {
-        await user.load('setting')
-
-        if (user.setting) {
-          user.setting.merge({
-            phone: settings.phone,
-            city: settings.city,
-          })
-          await user.setting.save()
-        } else {
-          await user.related('setting').create({
-            phone: settings.phone,
-            city: settings.city,
-          })
-        }
-      }
-
-      await user.load('setting')
+      const user = await UserService.updateUser(params.id, { name, email }, settings)
 
       return response.ok({
         status: true,
@@ -106,7 +86,6 @@ export default class UsersController {
         data: user,
       })
     } catch (error) {
-      console.error(error)
       return response.badRequest({
         status: false,
         message: 'Failed to update user',
@@ -115,11 +94,9 @@ export default class UsersController {
     }
   }
 
-  // DELETE
   async destroy({ params, response }: HttpContext) {
     try {
-      const user = await User.findOrFail(params.id)
-      await user.delete()
+      await UserService.deleteUser(params.id)
 
       return response.ok({
         status: true,
