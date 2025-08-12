@@ -3,37 +3,76 @@ import UserService from '../services/user_service.js'
 
 export default class UsersController {
  
-  async index({ request, response }: HttpContext) {
-  try {
-    const { page = 1, limit = 20, search = '', sortField = 'id', sortOrder = 'asc' } = request.body()
+//   async index({ request, response }: HttpContext) {
+//   try {
+//     const { page = 1, limit = 20, search = '', sortField = 'id', sortOrder = 'asc' } = request.body()
 
-    const users = await UserService.getPaginatedUsers({
-      page: Number(page),
-      limit: Number(limit),
-      search,
-      sortField,
-      sortOrder,
-    })
+//     const users = await UserService.getPaginatedUsers({
+//       page: Number(page),
+//       limit: Number(limit),
+//       search,
+//       sortField,
+//       sortOrder,
+//     })
 
-    return response.ok({
-      status: true,
-      message: 'Users fetched successfully',
-      meta: {
-        total: users.total,
-        perPage: users.perPage,
-        currentPage: users.currentPage,
-        lastPage: users.lastPage,
-      },
-      data: users.all(),
-    })
-  } catch (error) {
-    return response.internalServerError({
-      status: false,
-      message: 'Failed to fetch users',
-      error: error.message,
-    })
+//     return response.ok({
+//       status: true,
+//       message: 'Users fetched successfully',
+//       meta: {
+//         total: users.total,
+//         perPage: users.perPage,
+//         currentPage: users.currentPage,
+//         lastPage: users.lastPage,
+//       },
+//       data: users.all(),
+//     })
+//   } catch (error) {
+//     return response.internalServerError({
+//       status: false,
+//       message: 'Failed to fetch users',
+//       error: error.message,
+//     })
+//   }
+// }
+
+
+ async index({ request, response }) {
+    try {
+      const {
+        page = 1,
+        limit = 20,
+        q = "",
+        filters = {},
+        sortField = "id",
+        sortOrder = "asc",
+      } = request.only(["page", "limit", "q", "filters", "sortField", "sortOrder"]);
+
+      const result = await UserService.getPaginatedUsers({
+        page,
+        limit,
+        q,
+        filters,
+        sortField,
+        sortOrder,
+      });
+
+      const { data, meta } = result.toJSON();
+
+      return response.status(200).json({
+        status: true,
+        message: "Users fetched",
+        data,
+        meta,
+      });
+    } catch (error) {
+      console.error("UsersController.index error:", error);
+      return response.status(500).json({
+        status: false,
+        message: "Server error",
+        error: error.message,
+      });
+    }
   }
-}
 
 
   async show({ params, response }: HttpContext) {

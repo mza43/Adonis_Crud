@@ -6,35 +6,111 @@ export default class UserService {
   }
 // app/services/user_service.ts
 
+// user_service.ts
+// static async getPaginatedUsers({
+//   page = 1,
+//   limit = 20,
+//   search = '',
+//   sortField = 'id',
+//   sortOrder = 'asc',
+// }: {
+//   page?: number
+//   limit?: number
+//   search?: string
+//   sortField?: string
+//   sortOrder?: 'asc' | 'desc'
+// }) {
+//   const query = User.query()
+//     .preload('posts')
+//     .preload('setting')
+
+//   if (search) {
+//     query.where((builder) => {
+//       builder
+//         .whereILike('name', `%${search}%`)
+//         .orWhereILike('email', `%${search}%`)
+//         .orWhereHas('setting', (settingQuery) => {
+//           settingQuery
+//             .whereILike('phone', `%${search}%`)
+//             .orWhereILike('city', `%${search}%`)
+//         })
+//     })
+//   }
+
+//   if (sortField && ['id', 'name', 'email'].includes(sortField)) {
+//     query.orderBy(sortField, sortOrder)
+//   }
+
+//   return await query.paginate(page, limit)
+// }
+
+// new
 static async getPaginatedUsers({
-  page = 1,
-  limit = 20,
-  search = '',
-  sortField = 'id',
-  sortOrder = 'asc',
-}: {
-  page?: number
-  limit?: number
-  search?: string
-  sortField?: string
-  sortOrder?: 'asc' | 'desc'
-}) {
-  const query = User.query().preload('posts').preload('setting')
+    page = 1,
+    limit = 20,
+    q = "",
+    filters = {},
+    sortField = "id",
+    sortOrder = "asc",
+  } = {}) {
+    // Start query; we will preload relations
+    let query = User.query().preload("posts").preload("setting");
 
-  if (search) {
-    query.where((builder) => {
-      builder
-        .whereILike('name', `%${search}%`)
-        .orWhereILike('email', `%${search}%`)
-    })
+    // If caller provided per-field filters -> apply them specifically
+    const hasFieldFilters = filters && Object.keys(filters).length > 0;
+
+    if (hasFieldFilters) {
+      if (filters.id) {
+        // If id is numeric, match by id exact (you could improve parsing)
+        query.where("id", filters.id);
+      }
+      if (filters.name) {
+        query.whereILike("name", `%${filters.name}%`);
+      }
+      if (filters.email) {
+        query.whereILike("email", `%${filters.email}%`);
+      }
+      if (filters.phone) {
+        query.whereHas("setting", (settingQuery) => {
+          settingQuery.whereILike("phone", `%${filters.phone}%`);
+        });
+      }
+      if (filters.city) {
+        query.whereHas("setting", (settingQuery) => {
+          settingQuery.whereILike("city", `%${filters.city}%`);
+        });
+      }
+    } else if (q) {
+      // Global search across name, email, and setting fields
+      query.where((builder) => {
+        builder
+          .whereILike("name", `%${q}%`)
+          .orWhereILike("email", `%${q}%`)
+          .orWhereHas("setting", (settingQuery) => {
+            settingQuery.whereILike("phone", `%${q}%`).orWhereILike("city", `%${q}%`);
+          });
+      });
+    }
+
+   
+    if (sortField) {
+      if (["id", "name", "email"].includes(sortField)) {
+        query.orderBy(sortField, sortOrder);
+      } else if (sortField.startsWith("setting.")) {
+       
+        const [, settingField] = sortField.split(".");
+        
+        query = query
+          .join("settings", "settings.user_id", "users.id")
+          .select("users.*")
+          .orderBy(`settings.${settingField}`, sortOrder);
+      }
+    }
+
+    
+    const paginated = await query.paginate(page, limit);
+    return paginated;
   }
-
-  if (sortField && ['id', 'name', 'email'].includes(sortField)) {
-    query.orderBy(sortField, sortOrder)
-  }
-
-  return await query.paginate(page, limit)
-}
 
 
   static async getUserById(id: number) {
