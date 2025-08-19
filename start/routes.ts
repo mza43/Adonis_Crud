@@ -12,23 +12,20 @@ import CategoriesController from '../app/controllers/categories_controller.js'
 import PostsController from '../app/controllers/posts_controller.js'
 import SettingsController from '../app/controllers/settings_controller.js'
 import UsersController from '../app/controllers/users_controller.js'
+import AuthController from '../app/controllers/auth_controller.js'
 
-// Users routes
-
+// ====================== USERS ROUTES ======================
 router
   .group(() => {
-    router.post('/', [UsersController, 'index']) 
-
+    router.post('/', [UsersController, 'index']) // Paginated list
     router.get('/:id', [UsersController, 'show'])
     router.post('/create', [UsersController, 'store'])
     router.put('/:id', [UsersController, 'update'])
     router.delete('/:id', [UsersController, 'destroy'])
-    
   })
   .prefix('/api/users')
 
-// Posts routes
-
+// ====================== POSTS ROUTES ======================
 router
   .group(() => {
     router.get('/', [PostsController, 'index'])
@@ -39,8 +36,7 @@ router
   })
   .prefix('/api/posts')
 
-//   category
-
+// ====================== CATEGORIES ROUTES ======================
 router
   .group(() => {
     router.get('/', [CategoriesController, 'index'])
@@ -51,8 +47,7 @@ router
   })
   .prefix('/api/categories')
 
-// settings
-
+// ====================== SETTINGS ROUTES ======================
 router
   .group(() => {
     router.get('/', [SettingsController, 'index'])
@@ -63,8 +58,17 @@ router
   })
   .prefix('/api/settings')
 
-// Home page route
+// ====================== AUTH ROUTES ======================
+router
+  .group(() => {
+    router.post('/register', [AuthController, 'register'])
+    router.post('/login', [AuthController, 'login'])
+    router.post('/logout', [AuthController, 'logout'])
+    router.get('/me', [AuthController, 'me'])
+  })
+  .prefix('/api/auth')
 
-router.get('/',async()=>{
-  return "server is runging"
+// ====================== HOME TEST ROUTE ======================
+router.get('/', async () => {
+  return { message: 'Server is running 🚀' }
 })
